@@ -21,7 +21,6 @@ const App = () => {
   const [unit, setUnit] = useState("C");
   const [error, setError] = useState("");
 
-  
   const API_KEY = "ddba374ef001b03fa2ebb816698ff93d";
 
   useEffect(() => {
@@ -36,7 +35,7 @@ const App = () => {
   const fetchSuggestions = async (query) => {
     try {
       const res = await fetch(
-        `http://api.openweathermap.org/geo/1.0/direct?q=$(query)$limit=58appid=$(APT_KEY)`
+        `https://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5&appid=${API_KEY}`
       );
       res.ok ? setSuggestion(await res.json()) : setSuggestion([]);
     } catch {
@@ -66,9 +65,10 @@ const App = () => {
   const handleSearch = async (e) => {
     e.preventDefault();
     if (!city.trim()) return setError("Please enter a valid city name.");
+    const sanitizedCity = city.trim().replace(/[^a-zA-Z\s,]/g, "");
     await fetchWeatherData(
       `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(
-        city.trim()
+        sanitizedCity
       )}&appid=${API_KEY}&units=metric`
     );
   };
@@ -167,11 +167,9 @@ const App = () => {
                   [
                     WindIcon,
                     "Wind",
-                    `${weather.wind.speed} m/s ${
+                    `${weather.wind.speed} m/s ${getWindDirection(
                       weather.wind.deg
-                        ? `(${getWindDirection(weather.main.humidity)})`
-                        : ""
-                    }`,
+                    )}`,
                   ],
 
                   [
