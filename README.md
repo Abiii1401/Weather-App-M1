@@ -1,6 +1,12 @@
 # Weather App 🌤️
 
+[Live Demo @ Netlify](https://1401-weather-app.netlify.app/)
+
 A modern weather application built with React and Vite that provides real-time weather information for any location. The app features a beautiful UI with dynamic backgrounds based on weather conditions, temperature conversion, and detailed weather metrics.
+
+## Live Demo 🚀
+
+You can try the app live here: [https://1401-weather-app.netlify.app/](https://1401-weather-app.netlify.app/)
 
 ## Features ✨
 
@@ -63,40 +69,7 @@ The build files will be generated in the `dist` directory.
 
 ## Deployment to Netlify 🚀
 
-### Method 1: Using Netlify CLI
-
-1. Install Netlify CLI:
-
-   ```bash
-   npm install -g netlify-cli
-   ```
-
-2. Login to Netlify:
-
-   ```bash
-   netlify login
-   ```
-
-3. Initialize and deploy:
-   ```bash
-   netlify init
-   ```
-
-### Method 2: Using Netlify UI
-
-1. Push your code to a Git repository (GitHub, GitLab, or Bitbucket)
-
-2. Go to [Netlify](https://app.netlify.com/) and click "New site from Git"
-
-3. Choose your repository and configure the build settings:
-
-   - Build command: `npm run build`
-   - Publish directory: `dist`
-   - Add environment variable:
-     - Key: `VITE_WEATHER_API_KEY`
-     - Value: Your OpenWeatherMap API key
-
-4. Click "Deploy site"
+The app is deployed live at: [https://1401-weather-app.netlify.app/](https://1401-weather-app.netlify.app/)
 
 ## Environment Variables 🔑
 
