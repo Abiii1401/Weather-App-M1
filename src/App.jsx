@@ -21,7 +21,7 @@ const App = () => {
   const [unit, setUnit] = useState("C");
   const [error, setError] = useState("");
 
-  const API_KEY = "ddba374ef001b03fa2ebb816698ff93d";
+  const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
 
   useEffect(() => {
     if (city.trim.length >= 3 && !weather) {
@@ -35,7 +35,7 @@ const App = () => {
   const fetchSuggestions = async (query) => {
     try {
       const res = await fetch(
-        `https://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5&appid=${API_KEY}`
+        `http://api.openweathermap.org/geo/1.0/direct?q=${query}&limit=5&appid=${API_KEY}`
       );
       res.ok ? setSuggestion(await res.json()) : setSuggestion([]);
     } catch {
